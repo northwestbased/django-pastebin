@@ -1,0 +1,32 @@
+{% extends 'pastebin/base.html' %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'pastebin/index.css' %}">
+{% endblock %}
+{% block content %}
+
+  <form action="paste" method="Post">
+  <h3>New Paste</h3>
+    {% csrf_token %}
+    <textarea name="text" placeholder="Text"></textarea>
+    <input type="text" name="title" placeholder="Title (optional)"><br />
+    <label><input type="checkbox" name="public" checked="true">List publicly</label><br />
+    <input type="submit" value="Create Paste">
+  </form>
+
+<div id="mostrecent">
+<h3>Most Recent Pastes</h3>
+
+{% if latest_paste_list %}
+    <ul>
+    {% for paste in latest_paste_list %}
+        <li><a href="/{{ paste.key }}">{{ paste.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No pastes are available.</p>
+{% endif %}
+</div>
+
+{% endblock %}

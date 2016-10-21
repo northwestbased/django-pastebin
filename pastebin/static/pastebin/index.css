@@ -1,0 +1,33 @@
+#body #mostrecent{
+	width:20%;
+	display:inline-block;
+	vertical-align:top;
+}
+#body form{
+	width:79%;
+	display:inline-block
+}
+#body textarea{
+	width:98%;
+	height:30%;
+	padding:1%;
+}
+#body [type="text"]{
+	padding:10px;
+	width:50%;
+}
+#body form > *{
+	margin:10px 0;
+}
+#body h3{
+	padding:5px 0;
+	margin:0;
+}
+#body ul{
+	padding:0px;
+}
+
+#body ul li{
+	list-style-type:none;
+}
+

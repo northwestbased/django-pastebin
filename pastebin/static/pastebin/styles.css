@@ -1,0 +1,47 @@
+body, html, div, h1{
+	padding:0;
+	margin:0;
+}
+
+h1 a{
+	color:white;
+	text-decoration:none;
+}
+
+h1 a:hover, [type="submit"]:hover{
+	text-decoration:underline;
+	cursor:pointer;
+}
+
+*{
+	font-family:monospace;
+}
+
+#header{
+	width:100%;
+	background:#0e264c;
+	padding:5px 0;
+}
+#header #header-inner{
+	width:1200px;
+	margin:0 auto;
+	color:#FFF;
+}
+
+#body{
+    width:1200px;
+    margin:15px auto;
+}
+
+input[type="submit"]{
+	font-size:1.2em;
+	padding:10px 20px;
+	background:#0e264c;
+	color:#FFF;
+	border:0px;
+	border-radius:3px;
+}
+
+h1{
+	font-weight:normal;
+}

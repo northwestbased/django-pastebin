@@ -1,0 +1,30 @@
+{% extends 'pastebin/base.html' %}
+{% load static %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'pastebin/detail.css' %}">
+{% endblock %}
+{% block content %}
+<div id="paste-header">
+<form id="paste-download" action="getpaste/{{paste.key}}" method="get">
+<input type="submit" value="Download Paste"></form>
+<div id="paste-name">Title: {{ paste.title }}</div>
+<div id="paste-date">Date: {{ paste.pub_date }}</div>
+</div>
+<div id="paste-text">
+<pre><code>{{ paste.text }}</code></pre>
+</div>
+<form action="{{paste.key}}/createcomment" method="Post">
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="Name">
+    <textarea name="text" placeholder="Comment"></textarea>
+    <input type="submit" value="Submit Comment">
+</form>
+{% for comment in paste.comment_set.all %}
+<div>{{ comment.title }}</div>
+<div>{{ comment.pub_date }}</div>
+<div>{{ comment.text }}</div>
+{% endfor %}
+<script>hljs.initHighlightingOnLoad();
+hljs.initLineNumbersOnLoad();
+</script>
+{% endblock %}

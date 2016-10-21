@@ -1,0 +1,17 @@
+#paste-header{
+    margin-bottom:15px;
+}
+
+#paste-header #paste-name{
+    font-size:1.4em;
+}
+
+#paste-header #paste-download{
+    width: initial;
+    vertical-align: top;
+    float:right;
+    height: initial;
+}
+#paste-header #paste-download input{
+    margin:0;
+}
