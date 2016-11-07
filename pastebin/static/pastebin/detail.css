@@ -22,21 +22,21 @@
 }
 .comment {
     margin: 10px 0;
+    background:rgb(245, 242, 240);
+}
+.comment > * {
+    margin:0;
+    padding:0;
 }
 .comment .title {
     font-size: 1.3em;
 }
-.comment .date {
-    font-size: .9em;
-}
 .comment .text {
     font-size: 1.2em;
-}
-#paste-text {
-    padding: 5px;
-    border: 1px solid grey;
 }
 pre {
     padding:0px;
     margin:0px;
+    overflow:scroll;
+    max-height:70%;
 }

@@ -11,6 +11,13 @@
     {% csrf_token %}
     <textarea name="text" placeholder="Text"></textarea>
     <input type="text" name="title" placeholder="Title (optional)"><br />
+    <label>Syntax Highlighting: <select name="syntax">
+      {% for lang in language %}
+        {% for key in lang %}
+          <option value="{{key}}">{{key}}</option>
+        {% endfor %}
+      {% endfor %}
+    </select></label><br />
     <label><input type="checkbox" name="public" checked="true">List publicly</label><br />
     <input type="submit" value="Create Paste">
   </form>

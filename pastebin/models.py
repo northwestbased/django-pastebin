@@ -6,6 +6,7 @@ class Paste(models.Model):
     text = models.TextField()
     pub_date = models.DateTimeField('date published')
     key = models.CharField(max_length=15)
+    syntax = models.CharField(max_length=15)
 
 class Comment(models.Model):
     title = models.CharField(max_length=200)

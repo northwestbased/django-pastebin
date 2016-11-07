@@ -2,6 +2,8 @@
 {% load static %}
 {% block header %}
 <link rel="stylesheet" href="{% static 'pastebin/detail.css' %}">
+<link rel="stylesheet" href="{% static 'pastebin/prism.css' %}">
+<script src="{% static 'pastebin/prism.js' %}"></script>
 {% endblock %}
 {% block content %}
 <div id="paste-header">
@@ -11,7 +13,7 @@
 <div id="paste-date">{{ paste.pub_date }}</div>
 </div>
 <div id="paste-text">
-<pre><code>{{ paste.text }}</code></pre>
+<pre><code class="language-{{ paste.syntax }}">{{ paste.text }}</code></pre>
 </div>
 <form class="commentForm" action="{{paste.key}}/createcomment" method="Post">
     {% csrf_token %}
@@ -22,9 +24,8 @@
 <div class="comments">
 {% for comment in paste.comment_set.all %}
 <div class="comment">
-<div class="title">Name: {{ comment.title }}</div>
-<div class="date">{{ comment.pub_date }}</div>
-<div class="text">Comment:<br>{{ comment.text }}</div>
+<div class="title" title="{{comment.pub_date}}">{{ comment.title }} Says:</div>
+<div class="text">{{ comment.text }}</div>
 </div>
 {% endfor %}
 </div>
