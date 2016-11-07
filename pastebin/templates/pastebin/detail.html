@@ -8,23 +8,24 @@
 <form id="paste-download" action="getpaste/{{paste.key}}" method="get">
 <input type="submit" value="Download Paste"></form>
 <div id="paste-name">Title: {{ paste.title }}</div>
-<div id="paste-date">Date: {{ paste.pub_date }}</div>
+<div id="paste-date">{{ paste.pub_date }}</div>
 </div>
 <div id="paste-text">
 <pre><code>{{ paste.text }}</code></pre>
 </div>
-<form action="{{paste.key}}/createcomment" method="Post">
+<form class="commentForm" action="{{paste.key}}/createcomment" method="Post">
     {% csrf_token %}
     <input type="text" name="title" placeholder="Name">
     <textarea name="text" placeholder="Comment"></textarea>
     <input type="submit" value="Submit Comment">
 </form>
+<div class="comments">
 {% for comment in paste.comment_set.all %}
-<div>{{ comment.title }}</div>
-<div>{{ comment.pub_date }}</div>
-<div>{{ comment.text }}</div>
+<div class="comment">
+<div class="title">Name: {{ comment.title }}</div>
+<div class="date">{{ comment.pub_date }}</div>
+<div class="text">Comment:<br>{{ comment.text }}</div>
+</div>
 {% endfor %}
-<script>hljs.initHighlightingOnLoad();
-hljs.initLineNumbersOnLoad();
-</script>
+</div>
 {% endblock %}

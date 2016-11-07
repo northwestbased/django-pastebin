@@ -47,6 +47,8 @@ def getpaste(request, paste_id):
 def createcomment(request, key):
     text = request.POST['text']
     title = request.POST['title']
+    if title is "":
+      title = "None";
     paste = get_object_or_404(Paste, key=key)
     comment = Comment(title=title, text=text, pub_date=timezone.now(), paste=paste)
     comment.save()
